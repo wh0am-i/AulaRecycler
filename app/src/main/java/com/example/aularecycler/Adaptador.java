@@ -13,12 +13,12 @@ import java.util.ArrayList;
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
     Context context;
-    ArrayList<Produto> lista;
+    ArrayList<Produto> listaProdutos;
     Adaptador.OnItemClickListener listener;
 
-    public Adaptador(Context context, ArrayList<Produto> lista, OnItemClickListener listener) {
+    public Adaptador(Context context, ArrayList<Produto> listaProdutos, OnItemClickListener listener) {
         this.context = context;
-        this.lista = lista;
+        this.listaProdutos = listaProdutos;
         this.listener = listener;
     }
 
@@ -31,7 +31,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull Adaptador.MyViewHolder holder, int position) {
-        Produto p = lista.get(position);
+        Produto p = listaProdutos.get(position);
         holder.nome.setText(p.getNome());
         holder.preco.setText("R$"+p.getPreco());
         holder.sabor.setText(p.getSabor());
@@ -42,14 +42,14 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return lista.size();
-    } //extende ao pacote RecyclerView
+        return listaProdutos.size();
+    }
 
     public interface OnItemClickListener {
         void onItemClick(Produto p);
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder { //extende ao pacote RecyclerView
         TextView nome, sabor, preco;
 
         public MyViewHolder(@NonNull View itemView) {
