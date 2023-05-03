@@ -38,9 +38,8 @@ public class Novo extends AppCompatActivity {
         categ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent criarintent = new Intent(Novo.this, MainActivity.class); //vai mudar a tela
-                //startActivity(criarintent);
-                Novo.super.onBackPressed();
+                Intent criarintent = new Intent(Novo.this, MainActivity.class); //vai mudar a tela
+                startActivity(criarintent);
             }
         });
         relat.setOnClickListener(new View.OnClickListener() {

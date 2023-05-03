@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Produto> listaProdutos = new ArrayList<>();
+    ArrayList<Produto> listaProdutos = new ArrayList<>(); //tem que receber o valor de novo.java - não pode ser static se n perde o valor dos items, tem q criar uma nova classe com getter and setter só pra isso
     RecyclerView recycler;
     Button pesquisa, relat, novo;
     @Override
