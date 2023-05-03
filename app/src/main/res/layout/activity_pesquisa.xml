@@ -18,17 +18,6 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/android_large___3" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/relat"
         android:layout_width="42dp"
