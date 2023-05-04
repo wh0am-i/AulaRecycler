@@ -22,12 +22,13 @@ public class Novo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo);
         getSupportActionBar().hide();
+        //listaProdutos = com.example.aularecycler.listaProdutos.getListaProdutos();
         Preco = findViewById(R.id.Preco);
         Nome = findViewById(R.id.Nome);
         categoria = findViewById(R.id.categoria);
-        categ = findViewById(R.id.categ);
-        relat = findViewById(R.id.relat);
-        pesquisa = findViewById(R.id.pesquisa);
+        categ = findViewById(R.id.categ2);
+        relat = findViewById(R.id.relat2);
+        pesquisa = findViewById(R.id.pesquisa2);
         cadastrar = findViewById(R.id.cadastrar);
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,8 +39,9 @@ public class Novo extends AppCompatActivity {
         categ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent criarintent = new Intent(Novo.this, MainActivity.class); //vai mudar a tela
-                startActivity(criarintent);
+                //Intent criarintent = new Intent(Novo.this, MainActivity.class); //vai mudar a tela
+                //startActivity(criarintent);
+                Novo.super.onBackPressed();
             }
         });
         relat.setOnClickListener(new View.OnClickListener() {
@@ -61,10 +63,12 @@ public class Novo extends AppCompatActivity {
         String textnome = Nome.getText().toString();
         String textcateg = categoria.getText().toString();
 
-        if (textnome.isEmpty() && textcateg.isEmpty() && Preco.getText().toString() != null){
+        if (!textnome.isEmpty() && !textcateg.isEmpty() && !Preco.getText().toString().isEmpty()){
             float floatpreco = Float.parseFloat(Preco.getText().toString());
             Produto i = new Produto(textnome, textcateg, floatpreco);
             listaProdutos.add(i);
+            super.onBackPressed();
+            //com.example.aularecycler.listaProdutos.setListaProdutos(listaProdutos);
         }
     }
 }

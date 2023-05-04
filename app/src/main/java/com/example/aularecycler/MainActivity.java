@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Produto> listaProdutos = new ArrayList<>(); //tem que receber o valor de novo.java - não pode ser static se n perde o valor dos items, tem q criar uma nova classe com getter and setter só pra isso
     RecyclerView recycler;
     Button pesquisa, relat, novo;
+
+    Adaptador adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent criarintent = new Intent(MainActivity.this, Pesquisa.class); //vai mudar a tela
                 startActivity(criarintent);
+                Pesquisa.listaProdutos = listaProdutos;
             }
         });
         relat.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         recycler = findViewById(R.id.rv);
         recycler.setHasFixedSize(true); //terá um tamanho fixo
         recycler.setLayoutManager(new LinearLayoutManager(this)); //uma em cima da outra, linear
-        Adaptador adapter = new Adaptador(this, listaProdutos, new Adaptador.OnItemClickListener() {//isso aqui é a interface criada
+        adapter = new Adaptador(this, listaProdutos, new Adaptador.OnItemClickListener() {//isso aqui é a interface criada
             @Override
             public void onItemClick(Produto p) { //onclick de cada cartão, num geral
                 Toast.makeText(MainActivity.this, p.getNome(), Toast.LENGTH_SHORT).show();
@@ -64,4 +67,9 @@ public class MainActivity extends AppCompatActivity {
         listaProdutos.add(p1);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
 }

@@ -45,6 +45,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
         return listaProdutos.size();
     }
 
+
     public interface OnItemClickListener {
         void onItemClick(Produto p);
     }
@@ -59,4 +60,5 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
             preco = itemView.findViewById(R.id.preco);
         }
     }
+
 }
